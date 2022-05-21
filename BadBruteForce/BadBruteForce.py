@@ -10,7 +10,6 @@ def BadUserAttack(username,DatabaseFile = "Demo/Database.txt"):
         Hashed = HashedText.readlines()
         for HashedLine in Hashed:
             if username in HashedLine:
-                PasswordLength = 1;
                 BareHash = HashedLine.strip('\n') # the newline can make things tricky, so I just took it out
                 # print("[ Hashed ] ", BareHash) # if you want the hash being tested as output, just clutters screen in my opinion
                 Hashing = True
@@ -26,8 +25,6 @@ def BadUserAttack(username,DatabaseFile = "Demo/Database.txt"):
                     else:
                         print("[ Failed ] ", ''.join(randomString)," | " , HashedString) # print out the failures, just screen clutter
                         continue
-                        
-                    PasswordLength += 1 # if all else fails increment permuation length by one and retry
 
         for hit in successful:
             print("[ Success ] ", hit.strip('\n')," | ", username)
